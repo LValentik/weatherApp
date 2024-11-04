@@ -6,8 +6,8 @@ export default {
   data() {
     return {
       geoPosition: {
-        lat: 51.5156177,
-        lon: -0.0919983,
+        lat: 50.0875,
+        lon: 14.4213,
       },
     }
 

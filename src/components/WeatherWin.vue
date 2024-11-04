@@ -112,13 +112,13 @@ export default {
 <template>
 <DataFetch :key="lat + ',' + lon" :lat="lat" :lon="lon" @dataFetched='processMessage' />
 <div class="weather">
-<v-card maxWidth="800px" minWidth="800px" class="weatherCard py-4">
+<v-card maxWidth="800px" minWidth="600px" class="weatherCard py-4">
   <v-card-item ><v-card-title>{{weatherData.name}}, {{ weatherData.sys.country }}</v-card-title><v-card-subtitle>{{localTime}}</v-card-subtitle></v-card-item>
     <v-card-text class="py-1">
       <v-row align="center" no-gutters>
-        <v-col class="text-h2" cols="6">
+        <v-col class="text-h2" cols="7">
             <div class="flex">
-              {{ weatherData.main.temp }}°C
+              <v-divider>{{ weatherData.main.temp }}°C</v-divider>
               <v-list>
                 <v-list-item>
                   <v-list-item-subtitle>Humidity: {{ weatherData.main.humidity }}%</v-list-item-subtitle>
@@ -129,8 +129,8 @@ export default {
           <v-card-subtitle>High: <b>{{ weatherData.main.temp_max }}°C</b> | Min: <b>{{ weatherData.main.temp_min }}°C</b></v-card-subtitle>
           <v-card-subtitle class="text-h7">Feels like: <b>{{ weatherData.main.feels_like }}°C</b></v-card-subtitle>
         </v-col>
-        <v-col class="text-right" cols="6">
-          <v-icon :icon="iconMap[weatherData.weather[0].icon]" size="88" class="mx-10"></v-icon>
+        <v-col class="text-right" cols="maxWidth">
+          <v-icon :icon="iconMap[weatherData.weather[0].icon]" size="88" class="mr-6"></v-icon>
           <v-card-text></v-card-text>
         </v-col>
       </v-row>
